@@ -10,6 +10,7 @@ import logging
 import tarfile
 import urllib
 import importlib
+import urllib.request
 
 from .config import global_config, ConfigDict
 

@@ -198,7 +198,7 @@ class AudioMicStream:
         
         if self.sample_rate != self.device_sample_rate:
             samples = audio_to_float(samples)
-            samples = librosa.resample(samples, self.device_sample_rate, self.sample_rate)
+            samples = librosa.resample(samples, orig_sr=self.device_sample_rate, target_sr=self.sample_rate)
             
             if len(samples) != self.chunk_size:
                 logging.warning(f'resampled input audio has {len(samples)}, but expected {self.chunk_size} samples')
